@@ -1,110 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-id="th-modified">Глоссарий</title>
-    
-    <!-- Подключаем Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Подключаем Tailwind CSS с поддержкой конфигурации -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        slate: {
-                            950: '#070a13',
-                            900: '#0f172a',
-                            850: '#182238',
-                            800: '#1e293b',
-                            750: '#2c3b54',
-                            700: '#334155',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Подключаем React и ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    
-    <!-- Подключаем Babel -->
-    <script src="https://unpkg.com/@babel/standalone@7.23.10/babel.min.js"></script>
-
-    <!-- Подключаем иконки Lucide -->
-    <script src="https://unpkg.com/lucide@0.577.0/dist/umd/lucide.min.js"></script>
-
-    <style>
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(156, 163, 175, 0.3); border-radius: 10px; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.15); }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* 3D Flip Card animations */
-        .flip-card {
-            perspective: 1000px;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1.5rem;
-        }
-        .flip-card-back {
-            transform: rotateY(180deg);
-        }
-        
-        /* Highlighting match */
-        .search-match {
-            background-color: rgba(245, 158, 11, 0.2);
-            color: #d97706;
-            border-bottom: 2px solid rgba(245, 158, 11, 0.5);
-            padding: 0 1px;
-            border-radius: 2px;
-        }
-        .dark .search-match {
-            background-color: rgba(245, 158, 11, 0.35);
-            color: #fbbf24;
-            border-bottom: 2px solid rgba(245, 158, 11, 0.8);
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease; 
-        }
-    </style>
-</head>
-<body>
-    <div id="root"></div>
-
-    <script type="text/babel">
         const { useState, useMemo, useEffect } = React;
 
         const Icon = ({ name, className = "", size = 20, strokeWidth = 2 }) => {
@@ -6266,7 +6160,7 @@
                                 <div className="mb-8">
                                     <h2 className="text-2xl font-black text-slate-800 dark:text-white font-display mb-2 flex items-center gap-2">
                                         <Icon name="alert-triangle" className="text-rose-500" /> 
-                                        Запрещенные цифровые комбинации и выражения
+                                        Запрещенные цифровые комбинации
                                     </h2>
                                     <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
                                         Список числовых кодов, акронимов и аббревиатур, используемых экстремистскими группировками.
@@ -6537,6 +6431,4 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<MegaInfiniteApp />);
-    </script>
-</body>
-</html>
+    
