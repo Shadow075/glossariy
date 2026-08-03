@@ -27,8 +27,27 @@
                             900: '#0f172a',
                             850: '#182238',
                             800: '#1e293b',
+                            755: '#334155',
                             750: '#2c3b54',
                             700: '#334155',
+                            455: '#94a3b8',
+                            450: '#94a3b8',
+                            350: '#cbd5e1',
+                            250: '#e2e8f0',
+                            150: '#f1f5f9',
+                        },
+                        rose: {
+                            450: '#f43f5e',
+                            350: '#fb7185',
+                        },
+                        emerald: {
+                            350: '#34d399',
+                        },
+                        amber: {
+                            250: '#fcd34d',
+                        },
+                        indigo: {
+                            850: '#312e81',
                         }
                     }
                 }
@@ -5655,7 +5674,7 @@
                                 ? 'bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-950/90 dark:text-emerald-300 dark:border-emerald-900/60'
                                 : toast.type === 'error'
                                 ? 'bg-rose-50 text-rose-800 border-rose-200 dark:bg-rose-950/90 dark:text-rose-300 dark:border-rose-900/60'
-                                : 'bg-indigo-50 text-indigo-850 border-indigo-200 dark:bg-indigo-950/90 dark:text-indigo-300 dark:border-indigo-900/60'
+                                : 'bg-indigo-50 text-indigo-900 border-indigo-200 dark:bg-indigo-950/90 dark:text-indigo-300 dark:border-indigo-900/60'
                         }`}>
                             <div className={`p-1.5 rounded-lg ${
                                 toast.type === 'success' ? 'bg-emerald-500/10' : toast.type === 'error' ? 'bg-rose-500/10' : 'bg-indigo-500/10'
@@ -5702,7 +5721,7 @@
                                                 className={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-bold transition-all text-sm border ${
                                                     onlyFavorites 
                                                         ? 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 border-rose-200 dark:border-rose-900/60 shadow-inner' 
-                                                        : 'bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border-transparent text-slate-600 dark:text-slate-350'
+                                                        : 'bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border-transparent text-slate-600 dark:text-slate-200'
                                                 }`}
                                             >
                                                 <Icon name={onlyFavorites ? 'heart' : 'heart'} size={18} className={onlyFavorites ? 'fill-rose-500 text-rose-500' : 'text-slate-400'} />
@@ -5715,7 +5734,7 @@
                                     </div>
 
                                     {/* Horizontal Alphabet Filter */}
-                                    <div className="border-t border-slate-150 dark:border-slate-800/80 pt-4 mb-4">
+                                    <div className="border-t border-slate-200 dark:border-slate-800/80 pt-4 mb-4">
                                         <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2 font-display">Алфавитный указатель</div>
                                         <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-2 custom-scrollbar">
                                             <button 
@@ -5745,7 +5764,7 @@
                                     </div>
 
                                     {/* Horizontal Categories Filter */}
-                                    <div className="border-t border-slate-150 dark:border-slate-800/80 pt-4">
+                                    <div className="border-t border-slate-200 dark:border-slate-800/80 pt-4">
                                         <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2 font-display">Категории</div>
                                         <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
                                             {categories.map(category => (
@@ -5779,7 +5798,7 @@
                                             </span>
                                         )}
                                         {onlyFavorites && (
-                                            <span className="inline-flex items-center gap-1 px-3 py-1 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-350 rounded-xl">
+                                            <span className="inline-flex items-center gap-1 px-3 py-1 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 rounded-xl">
                                                 Только избранные
                                                 <button onClick={() => setOnlyFavorites(false)}><Icon name="x" size={14} /></button>
                                             </span>
@@ -5821,24 +5840,24 @@
                                                     <div 
                                                         key={item.id}
                                                         onClick={() => setSelectedTerm(item)}
-                                                        className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-xl dark:hover:shadow-none hover:border-indigo-300 dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full group relative"
+                                                        className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-xl dark:hover:shadow-none hover:border-indigo-300 dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full group relative min-w-0"
                                                     >
-                                                        <div className="flex justify-between items-start mb-3">
-                                                            <div className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 w-max px-2.5 py-1 rounded-lg flex items-center gap-1">
-                                                                <Icon name="bookmark" size={10} strokeWidth={3}/> {item.category}
+                                                        <div className="flex justify-between items-start mb-3 gap-2">
+                                                            <div className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 w-max max-w-[80%] px-2.5 py-1 rounded-lg flex items-center gap-1 shrink-0">
+                                                                <Icon name="bookmark" size={10} strokeWidth={3}/> <span className="truncate">{item.category}</span>
                                                             </div>
                                                             <button 
                                                                 onClick={(e) => toggleFavorite(e, item.id)}
-                                                                className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-rose-500 transition-colors"
+                                                                className="w-8 h-8 flex items-center justify-center rounded-xl bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-rose-500 transition-colors shrink-0"
                                                                 title={isFav ? "Убрать из избранного" : "В избранное"}
                                                             >
                                                                 <Icon name="heart" size={16} className={isFav ? 'fill-rose-500 text-rose-500' : 'text-slate-400'} />
                                                             </button>
                                                         </div>
-                                                        <h2 className="text-xl font-black text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors font-display">
+                                                        <h2 className="text-xl font-black text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors font-display break-words [overflow-wrap:anywhere] min-w-0">
                                                             <HighlightText text={item.term} search={searchTerm} />
                                                         </h2>
-                                                        <p className="text-slate-600 dark:text-slate-450 text-sm flex-grow line-clamp-3 font-semibold leading-relaxed">
+                                                        <p className="text-slate-600 dark:text-slate-300 text-sm flex-grow line-clamp-3 font-semibold leading-relaxed">
                                                             <HighlightText text={item.shortDef} search={searchTerm} />
                                                         </p>
                                                         <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-wider">
@@ -5866,7 +5885,7 @@
                                     </>
                                 ) : (
                                     <div className="text-center py-20 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-dashed">
-                                        <div className="flex justify-center mb-4 text-slate-300 dark:text-slate-755">
+                                        <div className="flex justify-center mb-4 text-slate-300 dark:text-slate-600">
                                             <Icon name="search" size={60} />
                                         </div>
                                         <h3 className="text-2xl font-black text-slate-800 dark:text-white mb-2 font-display">Термин не найден</h3>
@@ -5922,7 +5941,7 @@
                                 {studySubTab === 'cards' && (
                                     <div className="max-w-xl mx-auto flex flex-col items-center">
                                         <div className="w-full bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm mb-6 flex justify-between items-center gap-3">
-                                            <div className="text-xs text-slate-500 dark:text-slate-450 font-bold">
+                                            <div className="text-xs text-slate-500 dark:text-slate-300 font-bold">
                                                 Колода собрана на основе текущих фильтров словаря
                                             </div>
                                             <button 
@@ -5957,8 +5976,8 @@
                                                             <div className="text-xs font-black uppercase tracking-widest bg-white/20 px-3 py-1 rounded-lg">
                                                                 {shuffledDeck[cardIndex].category}
                                                             </div>
-                                                            <div className="text-center">
-                                                                <h2 className="text-3xl sm:text-4xl font-black tracking-tight font-display mb-4">
+                                                            <div className="text-center w-full px-4 min-w-0">
+                                                                <h2 className="text-2xl sm:text-4xl font-black tracking-tight font-display mb-4 break-words [overflow-wrap:anywhere]">
                                                                     {shuffledDeck[cardIndex].term}
                                                                 </h2>
                                                                 <p className="text-indigo-200 text-xs font-bold uppercase tracking-widest animate-pulse">
@@ -5973,14 +5992,14 @@
                                                         {/* Back Side */}
                                                         <div className="flip-card-back bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 p-6 sm:p-8 flex flex-col justify-between shadow-xl">
                                                             <div className="overflow-y-auto custom-scrollbar pr-1">
-                                                                <div className="flex justify-between items-center mb-3">
-                                                                    <span className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-md">
+                                                                <div className="flex justify-between items-center mb-3 gap-2">
+                                                                    <span className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-md shrink-0">
                                                                         {shuffledDeck[cardIndex].category}
                                                                     </span>
-                                                                    <span className="text-xs text-slate-400 font-bold">{shuffledDeck[cardIndex].term}</span>
+                                                                    <span className="text-xs text-slate-400 font-bold truncate max-w-[60%]">{shuffledDeck[cardIndex].term}</span>
                                                                 </div>
                                                                 <div className="border-l-4 border-indigo-500 pl-4 py-1 mb-4 text-left">
-                                                                    <p className="text-base font-bold text-slate-800 dark:text-slate-250 leading-snug">
+                                                                    <p className="text-base font-bold text-slate-800 dark:text-slate-100 leading-snug">
                                                                         {shuffledDeck[cardIndex].shortDef}
                                                                     </p>
                                                                 </div>
@@ -5988,7 +6007,7 @@
                                                                     {shuffledDeck[cardIndex].longDef}
                                                                 </p>
                                                                 {shuffledDeck[cardIndex].example && (
-                                                                    <div className="bg-amber-50 dark:bg-amber-950/20 p-3.5 rounded-xl border border-amber-250/20 text-xs text-amber-900/90 dark:text-amber-300 italic text-left">
+                                                                    <div className="bg-amber-50 dark:bg-amber-950/20 p-3.5 rounded-xl border border-amber-300/20 text-xs text-amber-900/90 dark:text-amber-300 italic text-left">
                                                                         «{shuffledDeck[cardIndex].example}»
                                                                     </div>
                                                                 )}
@@ -6009,7 +6028,7 @@
                                                             setCardFlipped(false);
                                                         }}
                                                         disabled={cardIndex === 0}
-                                                        className="p-3.5 bg-white dark:bg-slate-900 border border-slate-250 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 disabled:opacity-40 transition-all font-bold"
+                                                        className="p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-200 disabled:opacity-40 transition-all font-bold"
                                                     >
                                                         <Icon name="chevron-right" size={20} className="transform rotate-180" />
                                                     </button>
@@ -6053,7 +6072,7 @@
                                                             }
                                                         }}
                                                         disabled={cardIndex + 1 === shuffledDeck.length}
-                                                        className="p-3.5 bg-white dark:bg-slate-900 border border-slate-250 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350 disabled:opacity-40 transition-all font-bold"
+                                                        className="p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-200 disabled:opacity-40 transition-all font-bold"
                                                     >
                                                         <Icon name="chevron-right" size={20} />
                                                     </button>
@@ -6158,9 +6177,9 @@
                                                         let btnClass = "bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-800";
                                                         if (quizAnswerLocked) {
                                                             if (isCorrect) {
-                                                                btnClass = "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-350 text-emerald-800 dark:text-emerald-300 font-bold shadow-md shadow-emerald-50 dark:shadow-none";
+                                                                btnClass = "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 text-emerald-800 dark:text-emerald-300 font-bold shadow-md shadow-emerald-50 dark:shadow-none";
                                                             } else if (isSelected) {
-                                                                btnClass = "bg-rose-50 dark:bg-rose-950/40 border-rose-350 text-rose-800 dark:text-rose-300 font-bold";
+                                                                btnClass = "bg-rose-50 dark:bg-rose-950/40 border-rose-400 text-rose-800 dark:text-rose-300 font-bold";
                                                             } else {
                                                                 btnClass = "bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-600 border-slate-200 dark:border-slate-800 opacity-60";
                                                             }
@@ -6173,7 +6192,7 @@
                                                                 className={`p-5 rounded-2xl text-left text-base font-bold border-2 transition-all leading-normal flex items-center justify-between ${btnClass}`}
                                                                 disabled={quizAnswerLocked}
                                                             >
-                                                                <span>{opt.term}</span>
+                                                                <span className="break-words [overflow-wrap:anywhere] min-w-0 flex-1">{opt.term}</span>
                                                                 {quizAnswerLocked && isCorrect && (
                                                                     <Icon name="check" size={18} className="text-emerald-600 dark:text-emerald-400" />
                                                                 )}
@@ -6228,7 +6247,7 @@
                                                 </div>
 
                                                 {/* Encouraging message */}
-                                                <div className="mb-6 font-semibold text-slate-700 dark:text-slate-350">
+                                                <div className="mb-6 font-semibold text-slate-700 dark:text-slate-200">
                                                     {quizScore === quizQuestions.length ? (
                                                         <p className="text-emerald-600 dark:text-emerald-400">Идеальный результат! Вы настоящий эксперт в этих вопросах!</p>
                                                     ) : quizScore >= (quizQuestions.length * 0.7) ? (
@@ -6300,41 +6319,41 @@
                             <div className="bg-white dark:bg-slate-900 w-full sm:max-w-2xl max-h-[90vh] h-[85vh] sm:h-auto rounded-t-[2rem] sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-slate-100 dark:border-slate-800">
                                 
                                 {/* Modal Header */}
-                                <div className="flex justify-between items-start p-6 sm:p-8 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30">
-                                    <div>
+                                <div className="flex justify-between items-start p-6 sm:p-8 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30 gap-4">
+                                    <div className="min-w-0 flex-1 pr-2">
                                         <div className="text-xs font-black text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 rounded-lg inline-block">
                                             {selectedTerm.category}
                                         </div>
-                                        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white font-display tracking-tight">{selectedTerm.term}</h2>
+                                        <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-display tracking-tight break-words [overflow-wrap:anywhere]">{selectedTerm.term}</h2>
                                     </div>
-                                    <div className="flex items-center gap-1.5">
+                                    <div className="flex items-center gap-2 shrink-0">
                                         <button 
                                             onClick={(e) => toggleFavorite(e, selectedTerm.id)}
-                                            className="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-full transition-colors"
+                                            className="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-full transition-all shadow-sm"
                                             title="Добавить в избранное"
                                         >
                                             <Icon name="heart" size={18} className={favorites.includes(selectedTerm.id) ? 'fill-rose-500 text-rose-500' : ''} />
                                         </button>
                                         <button 
                                             onClick={handleOpenEdit}
-                                            className="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-900/40 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 rounded-full transition-colors"
+                                            className="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-900/40 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 rounded-full transition-all shadow-sm"
                                             title="Редактировать термин"
                                         >
                                             <Icon name="edit-2" size={18} />
                                         </button>
                                         <button 
                                             onClick={() => setIsDeleting(true)}
-                                            className="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-900/40 text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-450 rounded-full transition-colors"
+                                            className="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-900/40 text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 rounded-full transition-all shadow-sm"
                                             title="Удалить термин"
                                         >
                                             <Icon name="trash-2" size={18} />
                                         </button>
                                         <button 
                                             onClick={() => setSelectedTerm(null)} 
-                                            className="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-slate-500 dark:text-slate-400 transition-colors ml-1"
+                                            className="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-full transition-all shadow-sm"
                                             title="Закрыть"
                                         >
-                                            <Icon name="x" size={18} strokeWidth={3}/>
+                                            <Icon name="x" size={18} strokeWidth={2.5}/>
                                         </button>
                                     </div>
                                 </div>
@@ -6342,21 +6361,21 @@
                                 {/* Modal Content Body */}
                                 <div className="p-6 sm:p-8 overflow-y-auto custom-scrollbar bg-slate-50/30 dark:bg-slate-900/20 flex-grow space-y-6">
                                     <div className="bg-white dark:bg-slate-850 border-l-[5px] border-indigo-500 shadow-sm rounded-r-2xl p-5 border border-slate-200/40 dark:border-transparent">
-                                        <p className="text-lg text-slate-800 dark:text-slate-150 font-bold leading-snug">
+                                        <p className="text-lg text-slate-800 dark:text-slate-100 font-bold leading-snug">
                                             {selectedTerm.shortDef}
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-[11px] font-black text-slate-450 uppercase tracking-[0.2em] mb-2 font-display">Полное объяснение</h3>
-                                        <p className="text-slate-700 dark:text-slate-350 font-semibold leading-relaxed text-base whitespace-pre-line">
+                                        <h3 className="text-[11px] font-black text-slate-500 dark:text-slate-300 uppercase tracking-[0.2em] mb-2 font-display">Полное объяснение</h3>
+                                        <p className="text-slate-700 dark:text-slate-200 font-semibold leading-relaxed text-base whitespace-pre-line">
                                             {selectedTerm.longDef}
                                         </p>
                                     </div>
 
                                     {selectedTerm.example && (
                                         <div>
-                                            <h3 className="text-[11px] font-black text-slate-455 uppercase tracking-[0.2em] mb-2 font-display">Пример использования</h3>
+                                            <h3 className="text-[11px] font-black text-slate-500 dark:text-slate-300 uppercase tracking-[0.2em] mb-2 font-display">Пример использования</h3>
                                             <div className="bg-amber-50 dark:bg-amber-950/20 p-5 rounded-2xl border border-amber-200/40 text-amber-900/90 dark:text-amber-300 italic font-semibold shadow-inner leading-relaxed">
                                                 «{selectedTerm.example}»
                                             </div>
@@ -6365,7 +6384,7 @@
 
                                     {selectedTerm.related && selectedTerm.related.length > 0 && (
                                         <div className="pt-6 border-t border-slate-200/60 dark:border-slate-800">
-                                            <h3 className="text-[11px] font-black text-slate-450 uppercase tracking-[0.2em] mb-3 font-display">Смотрите также</h3>
+                                            <h3 className="text-[11px] font-black text-slate-500 dark:text-slate-300 uppercase tracking-[0.2em] mb-3 font-display">Смотрите также</h3>
                                             <div className="flex flex-wrap gap-2">
                                                 {selectedTerm.related.map(rel => {
                                                     const foundTerm = terms.find(t => t.term.toLowerCase() === rel.toLowerCase());
@@ -6375,8 +6394,8 @@
                                                             onClick={() => { if(foundTerm) setSelectedTerm(foundTerm); }}
                                                             className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold transition-all border
                                                                 ${foundTerm 
-                                                                    ? 'bg-indigo-50 dark:bg-indigo-950/40 hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white dark:hover:text-white border-indigo-100 dark:border-indigo-900/60 cursor-pointer shadow-sm' 
-                                                                    : 'bg-white dark:bg-slate-850 text-slate-400 border-slate-200 dark:border-slate-800 cursor-default'}`}
+                                                                    ? 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white dark:hover:text-white border-indigo-100 dark:border-indigo-900/60 cursor-pointer shadow-sm' 
+                                                                    : 'bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-700 cursor-default'}`}
                                                         >
                                                             <Icon name="hash" size={14} className={foundTerm ? 'text-indigo-500 dark:text-indigo-400' : 'text-slate-300'} /> {rel}
                                                         </button>
@@ -6399,8 +6418,8 @@
                                     <h2 className="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2 font-display">
                                         <Icon name="plus" className="text-indigo-600 dark:text-indigo-400" strokeWidth={3} /> Добавить термин
                                     </h2>
-                                    <button onClick={() => setIsAdding(false)} className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-slate-500 dark:text-slate-400 transition-colors shadow-sm">
-                                        <Icon name="x" size={18} strokeWidth={3}/>
+                                    <button onClick={() => setIsAdding(false)} className="w-9 h-9 flex items-center justify-center bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-slate-500 dark:text-slate-400 transition-all shadow-sm">
+                                        <Icon name="x" size={18} strokeWidth={2.5}/>
                                     </button>
                                 </div>
 
@@ -6455,8 +6474,8 @@
                                     <h2 className="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2 font-display">
                                         <Icon name="edit-2" className="text-indigo-600 dark:text-indigo-400" /> Редактирование термина
                                     </h2>
-                                    <button onClick={() => setIsEditing(false)} className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-slate-500 dark:text-slate-400 transition-colors shadow-sm">
-                                        <Icon name="x" size={18} strokeWidth={3}/>
+                                    <button onClick={() => setIsEditing(false)} className="w-9 h-9 flex items-center justify-center bg-white dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-slate-500 dark:text-slate-400 transition-all shadow-sm">
+                                        <Icon name="x" size={18} strokeWidth={2.5}/>
                                     </button>
                                 </div>
 
